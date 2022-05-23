@@ -64,7 +64,7 @@ public class DBManager {
         return temp;
     }
     
-    public void allocateStudent(String email, String roomNumber, String dateTime, String examID) throws SQLException{
+    public void allocateStudent(String dateTime, String roomNumber, String email, String examID) throws SQLException{
     st.executeUpdate("INSERT INTO ISDUSER.ALLOCATEDSTUDENTS (DATETIME, ROOMNUMBER, STUDENTEMAIL, EXAMID) VALUES ('" + dateTime + "', '" + roomNumber + "', '" + email + "', '" + examID + "')");
     }
     
@@ -92,6 +92,39 @@ public class DBManager {
             size++;
         }              
        return size;   
+    }
+    
+    public ExamType getExam(String examID) throws SQLException{
+       String fetch = "SELECT * FROM ISDUSER.EXAMTYPE WHERE EXAMID = '" + examID + "'";  
+       ResultSet rs = st.executeQuery(fetch);
+
+       while (rs.next()){
+            String subject = rs.getString(2);
+            String duration = rs.getString(3);
+            String espNumber = rs.getString(4);
+            return new ExamType(examID, subject, duration, espNumber);
+            
+        }              
+       return null;     
+    }
+    
+    public ArrayList<AllocatedStudents> getExamAllocations(String email) throws SQLException{
+        String fetch = "SELECT * FROM ISDUSER.ALLOCATEDSTUDENTS WHERE STUDENTEMAIL= '" + email + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<AllocatedStudents> temp = new ArrayList();
+
+        while(rs.next()){
+            String dateTime = rs.getString(1);
+            String roomNumber = rs.getString(2);
+            String studentEmail = rs.getString(3);
+            String examID = rs.getString(4);
+            temp.add(new AllocatedStudents(dateTime, roomNumber, studentEmail, examID));
+        }
+        return temp;
+    }
+    
+    public void unallocateStudent(String dateTime, String email) throws SQLException{
+        st.executeUpdate("DELETE FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME='" + dateTime + "' AND STUDENTEMAIL='" + email + "'");
     }
     
     //Find user by email and password in the database   

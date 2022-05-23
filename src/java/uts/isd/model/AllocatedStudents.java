@@ -28,6 +28,10 @@ public class AllocatedStudents implements Serializable {
         return dateTime;
     }
     
+    public String getExamID(){
+        return examID;
+    }
+    
     public String getRoom() {
         return roomNumber;
     }
