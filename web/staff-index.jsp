@@ -13,17 +13,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="stylesheet" href="styles-revised.css">
-    </head>         
-         <% 
-            String login = (String) session.getAttribute("login"); %>
-    <% if (login != null) { 
-            uts.isd.model.User user = (uts.isd.model.User) session.getAttribute("user"); 
-            String name = user.getName();
-            String email = user.getEmail(); 
-            String stafflogin = (String) session.getAttribute("staffLogin");
-    %>
-            
-    <body>
+        
+        
+        <%String stafflogin = (String) session.getAttribute("staffLogin");%>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!-- Container wrapper -->
@@ -69,7 +61,19 @@
             <!-- Container wrapper -->
           </nav>
          <!-- Navbar -->
-         
+    </head>
+    <body>
+  
+                    <% 
+            String login = (String) session.getAttribute("login");
+        %>
+    <% if (login != null) { 
+            uts.isd.model.Staff user = (uts.isd.model.Staff) session.getAttribute("user"); 
+            String name = user.getName();
+            String email = user.getEmail(); 
+    %>
+     
+            <p>You are logged in as <%= name %> </p>
         <!-- Header -->
         <header class="py-5">
             <div class="container-fluid px-4 px-lg-5 my-5">
@@ -83,40 +87,40 @@
         <div id="catalogue" class="container">
             <div class="row row-cols-1 row-cols-md-4 g-3">
                 <!-- Cards Section -->
-                <div id="list" class="col">
+                <div id="product-list" class="col">
                     <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Access Logs</h5>
                                 <p class="card-text">View your previous access logs.</p>
-                                <a href="log.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
+                                <a href="staff-log.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>     
                 </div>
 
-                <div id="list" class="col">
+                <div id="product-list" class="col">
                     <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">My account</h5>
                                 <p class="card-text">View your account information.</p>
-                                <a href="account.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
+                                <a href="staff-account.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>
                 </div>
-                <div id="list" class="col">
+                <div id="product-list" class="col">
                     <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Add TimeTable</h5>
-                                <p class="card-text">View and self-allocate to available exam timetable slots.</p>
-                                <a href="viewExams.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
+                                <h5 class="card-title">Device Catalogue</h5>
+                                <p class="card-text">Browse and purchase our IoTBay devices.</p>
+                                <a href="device-catalogue.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>
                 </div>
-                <div id="list" class="col">
+                <div id="product-list" class="col">
                     <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">View Allocated TimeTables</h5>
-                                <p class="card-text">View exam timetable slots you have been self-allocated to.</p>
-                                <a href="student-view-allocations.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
+                                <h5 class="card-title">Orders</h5>
+                                <p class="card-text">View past orders and create new ones.</p>
+                                <a href="#" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>
                 </div>     
@@ -124,24 +128,24 @@
         </div>
    <%} else { %>
    <p style="color:white;text-align:center;">You are not logged in</p>
-        <div class="mt-3">
-            <a href="login.jsp"><button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
-                <span>Login</span>
-                <i class="fa fa-long-arrow-right ms-2"></i>
-            </button></a>
-        </div>
-        <div class="mt-3">
-            <a href="register.jsp"><button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
-                <span>Register</span>
-                <i class="fa fa-long-arrow-right ms-2"></i>
-           </button></a>
-        </div>
-        <div class="mt-3">
-            <a href="staff-login.jsp"<button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
-                <span>Staff login</span>
-                <i class="fa fa-long-arrow-right ms-2"></i>
-            </button></a>
-        </div>
+                    <div class="mt-3">
+                        <a href="login.jsp"><button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
+                            <span>Login</span>
+                            <i class="fa fa-long-arrow-right ms-2"></i>
+                        </button></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="register.jsp"><button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
+                            <span>Register</span>
+                            <i class="fa fa-long-arrow-right ms-2"></i>
+                       </button></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="staff-login.jsp"<button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
+                            <span>Staff login</span>
+                            <i class="fa fa-long-arrow-right ms-2"></i>
+                        </button></a>
+                    </div>
    <% } %>
                 </div>
             </div>

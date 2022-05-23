@@ -43,7 +43,7 @@ public class StudentAllocateServlet extends HttpServlet {
             String examID = request.getParameter("examID");
             String dateTime = request.getParameter("dateTime");
             manager.allocateStudent(dateTime, room, email, examID);
-            String redirectURL = "index.jsp";
+            String redirectURL = "student-view-allocations.jsp";
             response.sendRedirect(redirectURL);
             } 
         catch (ClassNotFoundException | SQLException e)
