@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<!--
+    Copyright (c) 1997, 2018 Oracle and/or its affiliates. All rights reserved.
+    
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+-->
+<glassfish-web-app error-url="">
+  <class-loader delegate="true"/>
+  <jsp-config>
+    <property name="keepgenerated" value="true">
+      <description>Keep a copy of the generated servlet class' java code.</description>
+    </property>
+  </jsp-config>
+  <servlet>
+    <servlet-name>UserUpdate</servlet-name>
+    <servlet-class>uts.isd.controller.UserUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserUpdate</servlet-name>
+    <url-pattern>/UserUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RegisterUserServlet</servlet-name>
+    <servlet-class>uts.isd.controller.RegisterUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUserServlet</servlet-name>
+    <url-pattern>/RegisterUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeviceDeleteServlet</servlet-name>
+    <servlet-class>uts.isd.controller.DeviceDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeviceDeleteServlet</servlet-name>
+    <url-pattern>/DeviceDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeviceAddServlet</servlet-name>
+    <servlet-class>uts.isd.controller.DeviceAddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeviceEditServlet</servlet-name>
+    <servlet-class>uts.isd.controller.DeviceEditServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeviceSearchServlet</servlet-name>
+    <servlet-class>uts.isd.controller.DeviceSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeviceTesr</servlet-name>
+    <servlet-class>uts.isd.controller.DeviceTesr</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeviceAddServlet</servlet-name>
+    <url-pattern>/DeviceAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeviceEditServlet</servlet-name>
+    <url-pattern>/DeviceEditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeviceSearchServlet</servlet-name>
+    <url-pattern>/DeviceSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeviceTesr</servlet-name>
+    <url-pattern>/DeviceTesr</url-pattern>
+  </servlet-mapping>
+</glassfish-web-app>
