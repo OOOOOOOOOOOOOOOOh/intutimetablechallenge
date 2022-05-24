@@ -73,8 +73,8 @@ public class DBManager {
         ResultSet rs = st.executeQuery(fetch);
        
         while (rs.next()){
-            int columnSize = rs.getInt(1);
-            int rowSize = rs.getInt(2);
+            int columnSize = rs.getInt(2);
+            int rowSize = rs.getInt(3);
             System.out.println("columnSize: " + columnSize);
             System.out.println("rowSize: " + rowSize);
             int maxSize = columnSize * rowSize;
