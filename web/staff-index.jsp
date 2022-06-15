@@ -32,12 +32,6 @@
                       <a class="nav-link" href="staff-index.jsp">Home Page</a>
                    <%};%>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="device-catalogue.jsp">Device Catalogue</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
-                  </li>
                 </ul>
                 <!-- Left links -->
               </div>
@@ -63,14 +57,12 @@
          <!-- Navbar -->
     </head>
     <body>
-  
                     <% 
             String login = (String) session.getAttribute("login");
         %>
     <% if (login != null) { 
             uts.isd.model.Staff user = (uts.isd.model.Staff) session.getAttribute("user"); 
-            String name = user.getName();
-            String email = user.getEmail(); 
+            String name = user.getName(); 
     %>
      
             <p>You are logged in as <%= name %> </p>
@@ -109,18 +101,18 @@
                 <div id="product-list" class="col">
                     <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Device Catalogue</h5>
-                                <p class="card-text">Browse and purchase our IoTBay devices.</p>
-                                <a href="device-catalogue.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
+                                <h5 class="card-title">View Exam Sessions</h5>
+                                <p class="card-text">View room layouts and existing exam sessions.</p>
+                                <a href="staff-view-examslots.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>
                 </div>
                 <div id="product-list" class="col">
                     <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Orders</h5>
-                                <p class="card-text">View past orders and create new ones.</p>
-                                <a href="#" style="background-color: #5666e3;" class="btn btn-primary">View</a>
+                                <h5 class="card-title">Add A New Exam Session</h5>
+                                <p class="card-text">Add a new exam session.</p>
+                                <a href="staff-add-time-slot.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>
                 </div>     

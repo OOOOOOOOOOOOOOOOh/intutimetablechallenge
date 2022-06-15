@@ -39,15 +39,6 @@
                  <label for="password">Password:</label>
                  <input type="password" id="password" name="password" required><br><br>
                  
-                 <label for="gender">Gender:</label>
-                 <input type="text" id="gender" name="gender" required> <br><br>
-                 
-                 <label for="favcol">Favourite Colour:</label>
-                 <input type="text" id="favcol" name="favcol"><br><br>
-                 
-                 <label for="phone">Phone Number:</label>
-                 <input type="text" id="phone" name="phone"><br><br>
-                 
                  <label for="tos">I agree to the Terms of Service:</label>
                  <input type="checkbox" id="tos" name="tos"><br><br>
                  
