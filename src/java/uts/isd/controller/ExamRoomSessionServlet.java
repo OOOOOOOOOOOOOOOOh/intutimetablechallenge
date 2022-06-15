@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +24,8 @@ import java.util.logging.*;
  * @author Sam (1/2) + caitlin :)
  */
 
-@WebServlet(name = "StaffUpdateServlet", urlPatterns = {"/StaffUpdateServlet"})
-public class StaffUpdateServlet extends HttpServlet {
+@WebServlet(name = "ExamRoomSessionServlet", urlPatterns = {"/ExamRoomSessionServlet"})
+public class ExamRoomSessionServlet extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -33,40 +34,30 @@ public class StaffUpdateServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession();
-            String email = request.getParameter("email");
-            String name = request.getParameter("name");
-            String password = request.getParameter("password");
-            String emailOld = (String) session.getAttribute("emailOld");
-            System.out.println(emailOld);
-            System.out.print(email);
-
+            String room = (String) request.getParameter("examRoomNumber");
+            String dateTime = (String) request.getParameter("examDateTime");
+            
             DBConnector dbConnector = new DBConnector();
             Connection conn = dbConnector.openConnection();
             DBManager manager = new DBManager(conn);
-            Validator validator = new Validator();
-            validator.clear(session);
-            System.out.println(manager.findEmail(email));
-            if(!(email.equals(emailOld)) && (manager.findEmail(email) != null)){
-                session.setAttribute("userexists", "true");
-                System.out.println("User found!");
-            }
             
-            else {
-                manager.updateStaff(email, name, password, emailOld);
-                uts.isd.model.Staff user = new uts.isd.model.Staff(name, email, password);
-                session.setAttribute("user", user);
-                System.out.println("User updated!");
-            }
-            
-            String redirectURL = "staff-index.jsp";
+            ArrayList<uts.isd.model.StudentExamRoomList> studentExamRoomList = manager.fetchStudentExamRoomList(dateTime, room);
+            System.out.println("Found Student List");
+            int maxExamStudents = manager.getMaxExamStudents(dateTime, room);
+            int examQuantity = manager.getExamQuantity(dateTime, room);
+            session.setAttribute("studentExamRoomList", studentExamRoomList);
+            session.setAttribute("viewRoom", room);
+            session.setAttribute("maxExamStudents", maxExamStudents);
+            session.setAttribute("examQuantity", examQuantity);
+            System.out.println("Redirecting to examroom view");
+            String redirectURL = "student-view-examroom.jsp";
             response.sendRedirect(redirectURL);
-
             } 
-            catch (ClassNotFoundException | SQLException e)
-            {
-                e.printStackTrace(System.out);
-                Logger.getLogger(UserRegisterServlet.class.getName()).log(Level.SEVERE, null, e);
-            }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace(System.out);
+            Logger.getLogger(UserLogServlet.class.getName()).log(Level.SEVERE, null, e);
+        }
             
 
         }

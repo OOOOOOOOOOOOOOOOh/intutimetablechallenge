@@ -9,6 +9,7 @@ import uts.isd.model.StaffLog;
 import uts.isd.model.ExamSession;
 import uts.isd.model.AllocatedStudents;
 import uts.isd.model.ExamType;
+import uts.isd.model.StudentExamRoomList;
 
 /* 
 * DBManager is the primary DAO class to interact with the database. 
@@ -35,7 +36,40 @@ public class DBManager {
         }
         return temp;
     }
+    public int getMaxExamStudents(String dateTime, String roomID) throws SQLException{
+        String fetch = "SELECT EXAMID, COUNT(EXAMID) FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' GROUP BY EXAMID ORDER BY COUNT(EXAMID) DESC FETCH FIRST 1 ROWS ONLY";
+        ResultSet rs = st.executeQuery(fetch);
 
+        while(rs.next()){
+//            String examID = rs.getString(1);
+            int maxQuantity = rs.getInt(2);
+            return maxQuantity;
+        }
+        return 0;
+    }
+    public int getExamQuantity(String dateTime, String roomID) throws SQLException{
+        String fetch = "SELECT COUNT(DISTINCT EXAMID) FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' GROUP BY EXAMID";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while(rs.next()){
+            int examQuantity = rs.getInt(1);
+            return examQuantity;
+        } 
+        return 0;
+    }
+    public ArrayList<StudentExamRoomList> fetchStudentExamRoomList(String dateTime, String roomID) throws SQLException{
+        String fetch = "SELECT STUDENTEMAIL, EXAMID FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' ORDER BY EXAMID";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<StudentExamRoomList> temp = new ArrayList();
+
+        while(rs.next()){
+            String email = rs.getString(1);
+            String examID = rs.getString(2);
+            temp.add(new StudentExamRoomList(email, examID));
+        }
+        return temp;
+    }
+    
     public ArrayList<ExamSession> getExamSlots() throws SQLException{
         String fetch = "SELECT * FROM ISDUSER.EXAMSESSION";
         ResultSet rs = st.executeQuery(fetch);
@@ -68,6 +102,10 @@ public class DBManager {
     st.executeUpdate("INSERT INTO ISDUSER.ALLOCATEDSTUDENTS (DATETIME, ROOMNUMBER, STUDENTEMAIL, EXAMID) VALUES ('" + dateTime + "', '" + roomNumber + "', '" + email + "', '" + examID + "')");
     }
     
+    public void addExamSlot(String dateTime, String roomNumber) throws SQLException{
+    st.executeUpdate("INSERT INTO ISDUSER.EXAMSESSION (DATETIME, ROOMNUMBER) VALUES ('" + dateTime + "', '" + roomNumber + "')");
+    }
+    
     public int getMaxCapacity(String roomID) throws SQLException{
         String fetch = "SELECT * FROM ISDUSER.ROOM WHERE ROOMNUMBER = '" + roomID + "'";  
         ResultSet rs = st.executeQuery(fetch);
@@ -83,6 +121,31 @@ public class DBManager {
         }              
        return 0;   
     }
+    
+    public int getRoomRows(String roomID) throws SQLException{
+        String fetch = "SELECT * FROM ISDUSER.ROOM WHERE ROOMNUMBER = '" + roomID + "'";  
+        ResultSet rs = st.executeQuery(fetch);
+       
+        while (rs.next()){
+            int rowSize = rs.getInt(3);
+            return rowSize;
+            
+        }              
+       return 0;   
+    }
+
+       public int getRoomColumns(String roomID) throws SQLException{
+        String fetch = "SELECT * FROM ISDUSER.ROOM WHERE ROOMNUMBER = '" + roomID + "'";  
+        ResultSet rs = st.executeQuery(fetch);
+       
+        while (rs.next()){
+            int columnSize = rs.getInt(2);
+            return columnSize;
+            
+        }              
+       return 0;   
+    }
+    
     
     public int getNumberOfStudents(String dateTime, String roomID) throws SQLException{
         String fetch = "SELECT * FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID + "'";  
@@ -153,6 +216,17 @@ public class DBManager {
        return null;   
     }
 
+    public String findName(String email) throws SQLException {  
+       String fetch = "SELECT * FROM ISDUSER.Users WHERE email = '" + email + "'";  
+       ResultSet rs = st.executeQuery(fetch);
+
+       while (rs.next()){
+            String userName = rs.getString(2);
+            return userName;
+            }           
+       return null;   
+    }
+    
     //Add a user-data into the database   
     public void addUser(String email, String name, String password) throws SQLException {                   //code for add-operation       
     st.executeUpdate("INSERT INTO ISDUSER.USERS (EMAIL, NAME, PASSWORD) VALUES ('" + email + "', '" + name + "', '" + password + "')");
@@ -244,11 +318,8 @@ public class DBManager {
        while (rs.next()){
             String userEmail = rs.getString(1);
             String userPass = rs.getString(3);
-            String userGender = rs.getString(4);
-            String userFavCol = rs.getString(5);
             String userName = rs.getString(2);
-            String userPhone = rs.getString(6);
-            return new Staff(userName, userEmail, userPass, userGender, userFavCol, userPhone);
+            return new Staff(userName, userEmail, userPass);
             
         }              
        return null;   
@@ -266,13 +337,13 @@ public class DBManager {
     }
 
     //Add a user-data into the database   
-    public void addStaff(String email, String name, String password, String gender, String favcol, String phone) throws SQLException {                   //code for add-operation       
-    st.executeUpdate("INSERT INTO ISDUSER.STAFF (EMAIL, NAME, PASSWORD, GENDER, FAVCOL, PHONE) VALUES ('" + email + "', '" + name + "', '" + password + "', '" + gender + "', '" + favcol + "', '" + phone +"')");
+    public void addStaff(String email, String name, String password) throws SQLException {                   //code for add-operation       
+    st.executeUpdate("INSERT INTO ISDUSER.STAFF (EMAIL, NAME, PASSWORD) VALUES ('" + email + "', '" + name + "', '" + password + "')");
     }
 
     //update a user details in the database   
-    public void updateStaff( String email, String name, String password, String gender, String favcol, String phone, String emailold) throws SQLException {       
-      st.executeUpdate("UPDATE ISDUSER.Staff SET EMAIL='" +  email + "', NAME='" + name + "', PASSWORD='" + password  +  "', GENDER='" + gender  + "', FAVCOL='" + favcol + "', PHONE= '" + phone + "' WHERE EMAIL='" + emailold + "'");
+    public void updateStaff( String email, String name, String password, String emailold) throws SQLException {       
+      st.executeUpdate("UPDATE ISDUSER.Staff SET EMAIL='" +  email + "', NAME='" + name + "', PASSWORD='" + password  +  "' WHERE EMAIL='" + emailold + "'");
     }       
 
     //delete a user from the database   
@@ -294,7 +365,7 @@ public class DBManager {
             String gender = rs.getString(4);
             String favcol = rs.getString(5);
             String phone = rs.getString(6);
-            temp.add(new Staff(name,email,password,gender,favcol,phone));
+            temp.add(new Staff(name,email,password));
         }
         return temp;
     }

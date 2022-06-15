@@ -39,18 +39,13 @@ public class StaffRegisterServlet extends HttpServlet {
             String name = (String) request.getParameter("name");
             String email = (String) request.getParameter("email");
             String password = (String) request.getParameter("password");
-            String gender = (String) request.getParameter("gender");
-            String favcol = (String) request.getParameter("favcol");
-            String phone = (String) request.getParameter("phone");
             String tos = (String) request.getParameter("tos");
             
             session.setAttribute("name", name);
             session.setAttribute("email", email);
             session.setAttribute("password", password);
-            session.setAttribute("gender", gender);
-            session.setAttribute("favcol", favcol);
             session.setAttribute("login", request.getParameter("login"));
-            uts.isd.model.Staff user = new uts.isd.model.Staff(name, email, password, favcol, gender, phone);
+            uts.isd.model.Staff user = new uts.isd.model.Staff(name, email, password);
             session.setAttribute("user", user);
             session.setAttribute("staff", user);
             session.setAttribute("tos", tos);
@@ -70,14 +65,7 @@ public class StaffRegisterServlet extends HttpServlet {
                 response.sendRedirect(redirectURL);
                 System.out.print("catch3");
             }
-            
-            else if(validator.validatePhone(phone) != true){
-                session.setAttribute("phoneErr", "Please fill in the 'Phone' field with the correct formatting");
-                String redirectURL = "staff-register.jsp";
-                response.sendRedirect(redirectURL);
-                System.out.print("catch3");
-            }
-            
+
             else if(validator.validateEmail(email) != true){
                 session.setAttribute("emailErr", "Please fill in the 'Email' field with the correct formatting");
                 String redirectURL = "staff-register.jsp";
@@ -85,14 +73,14 @@ public class StaffRegisterServlet extends HttpServlet {
                 System.out.print("catch3");
             }
             else {
-                manager.addStaff(email, name, password, gender, favcol, phone);
+                manager.addStaff(email, name, password);
                 session.setAttribute("staffLogin", "true");
                 LocalDateTime date = LocalDateTime.now();
                 DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 String formattedDateTime = date.format(dateTimeFormatter);
                 manager.addStaffLog("staff registration", formattedDateTime, email);
             
-                String redirectURL = "staff-welcome.jsp";
+                String redirectURL = "staff-index.jsp";
                 response.sendRedirect(redirectURL);
                 System.out.print("catch3");
             }

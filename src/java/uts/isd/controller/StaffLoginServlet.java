@@ -53,24 +53,21 @@ public class StaffLoginServlet extends HttpServlet {
                 //find staff in dB, which is returned as type Staff
                 uts.isd.model.Staff user = (uts.isd.model.Staff) manager.findStaff(email, password);
                 //set session attribute as staff
-                session.setAttribute("staff", user);
+                session.setAttribute("user", user);
                 
                 //if user has been found
                 if (user != null){
                     String name = user.getName();
-                    String gender = user.getGender();
-                    String favcol = user.getFavcol();
-                    String phone = user.getPhone();
                     System.out.println("User is not null");
+                    System.out.println("Name is: " + name);
+                    System.out.println("email is: " + email);
+                    System.out.println("password is: " + password);
                     session.setAttribute("login", "true");
                     session.setAttribute("name", name);
                     session.setAttribute("email", email);
                     session.setAttribute("password", password);
-                    session.setAttribute("gender", gender);
-                    session.setAttribute("favcol", favcol);
-                    session.setAttribute("phone", phone);
                     session.setAttribute("staffLogin", "true");
-                    String redirectURL = "staff-welcome.jsp";
+                    String redirectURL = "staff-index.jsp";
                     LocalDateTime date = LocalDateTime.now();
                     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                     String formattedDateTime = date.format(dateTimeFormatter);
