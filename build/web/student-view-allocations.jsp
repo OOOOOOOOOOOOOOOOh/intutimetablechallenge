@@ -49,6 +49,11 @@
             <p>Subject: <%=subject%></p>
             <p>Duration: <%=duration%></p>
             <p>ESP Number: <%=ESPNumber%></p>
+            <form action="ExamRoomSessionServlet" method="POST">
+                <input type="hidden" id="examDateTime" name="examDateTime" value="<%=dateTime%>"><br><br>
+                <input type="hidden" id="examRoomNumber" name="examRoomNumber" value="<%=roomNumber%>"><br><br>
+                <button>View Exam Room Layout</button>
+           </form> 
             <p>-----------------</p>
             <form action="StudentUnallocateServlet" method="POST">
                 <input type="hidden" id="dateTime" name="dateTime" value="<%=dateTime%>"/>

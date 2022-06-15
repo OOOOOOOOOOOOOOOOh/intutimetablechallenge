@@ -80,6 +80,18 @@
         <servlet-name>StudentUnallocateServlet</servlet-name>
         <servlet-class>uts.isd.controller.StudentUnallocateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExamRoomSessionServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ExamRoomSessionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffAddTimeSlotServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffAddTimeSlotServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffExamRoomSessionServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffExamRoomSessionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegisterServlet</servlet-name>
         <url-pattern>/UserRegisterServlet</url-pattern>
@@ -191,6 +203,18 @@
     <servlet-mapping>
         <servlet-name>StudentUnallocateServlet</servlet-name>
         <url-pattern>/StudentUnallocateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExamRoomSessionServlet</servlet-name>
+        <url-pattern>/ExamRoomSessionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffAddTimeSlotServlet</servlet-name>
+        <url-pattern>/StaffAddTimeSlotServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffExamRoomSessionServlet</servlet-name>
+        <url-pattern>/StaffExamRoomSessionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
