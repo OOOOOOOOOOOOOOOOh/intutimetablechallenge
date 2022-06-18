@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <title>IotBay - My Account</title>
+        <title>Intuition - My Account</title>
     </head>
     <body style="background-color: #5661ba;">
             <%
@@ -20,9 +20,6 @@
             String name = user.getName();
             String email = user.getEmail();
             String password = user.getPassword();
-            String gender = user.getGender();
-            String favcol = user.getFavcol();
-            String phone = user.getPhone();
             session.setAttribute("emailOld", email);
             String stafflogin = (String) session.getAttribute("staffLogin");
             %>
@@ -44,10 +41,10 @@
                    <%};%>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="device-catalogue.jsp">Device Catalogue</a>
+                    <a class="nav-link" href="device-catalogue.jsp"></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#"></a>
                   </li>
                 </ul>
                 <!-- Left links -->
@@ -56,7 +53,7 @@
               <div class="d-flex align-items-center">
                 <!-- Shopping Cart -->
                 <a class="text-reset me-3" href="#">
-                  <i class="fa fa-shopping-cart"></i>
+                  
                 </a>
                 <!-- Profile -->
                 <% if (stafflogin != null){ %>
@@ -88,29 +85,15 @@
                     <label style="color:white;text-align:center;" for="password">Password: <%= password %></label>
                     <p style="color:white;text-align:center;"> Edit password: </p>
                     <input style="color:black;text-align:center;" type="password" id="password" name="password" value="<%= password %>"><br><br>
-
-                    <label style="color:white;text-align:center;" for="gender">Gender: <%= gender %></label>
-                    <p style="color:white;text-align:center;">Edit gender: </p>
-                    <input style="color:black;text-align:center;" type="text" id="gender" name="gender" value="<%= gender %>"> <br><br>
-
-                    <label style="color:white;text-align:center;" for="favcol">Favourite Colour: <%= favcol %></label>
-                    <p style="color:white;text-align:center;">Edit favourite colour: </p>
-                    <input style="color:black;text-align:center;" type="text" id="favcol" name="favcol" value="<%= favcol %>"><br><br>
                     
-                    <label style="color:white;text-align:center;" for="phone">Phone: <%= favcol %></label>
-                    <p style="color:white;text-align:center;">Edit phone number: </p>
-                    <input style="color:black;text-align:center;" type="phone" id="phone" name="phone" value="<%= phone %>"><br><br>
-                    
-                    <input style="color:black;text-align:center;" type="submit" value="Save">
+                    <input class="btn btn-secondary" type="submit" value="Save">
                         <% if ((String) session.getAttribute("emailErr") != null) { %>
                             <p><%= (String) session.getAttribute("emailErr") %></p>
                             <% } %>
                         <% if ((String) session.getAttribute("phoneErr") != null) { %>
                             <p><%= (String) session.getAttribute("phoneErr") %></p>
                             <% } %>
-                </form>
-
-                
+                </form>    
             </div>
     </body>
 </html>

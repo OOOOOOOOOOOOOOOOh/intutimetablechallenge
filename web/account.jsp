@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <title>IotBay - My Account</title>
+        <title>Intuition - My Account</title>
         
           <%String stafflogin = (String) session.getAttribute("staffLogin");%>
         
@@ -33,10 +33,10 @@
                    <%};%>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="device-catalogue.jsp">Device Catalogue</a>
+                    <a class="nav-link" href="device-catalogue.jsp"></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#"></a>
                   </li>
                 </ul>
                 <!-- Left links -->
@@ -45,7 +45,7 @@
               <div class="d-flex align-items-center">
                 <!-- Shopping Cart -->
                 <a class="text-reset me-3" href="#">
-                  <i class="fa fa-shopping-cart"></i>
+                  
                 </a>
                 <!-- Profile -->
                 <% if (stafflogin != null){ %>
@@ -87,7 +87,7 @@
                     <p style="color:white;text-align:center;"> Edit password: </p>
                     <input style="color:black;text-align:center;" type="password" id="password" name="password" value="<%= password %>"><br><br>
                     
-                    <input style="color:black;text-align:center;" type="submit" value="Save">
+                    <input class="btn btn-secondary" type="submit" value="Save">
                            <% if ((String) session.getAttribute("emailErr") != null) { %>
                              <p><%= (String) session.getAttribute("emailErr") %></p>
                              <% } %>

@@ -52,10 +52,10 @@
                    <%};%>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="device-catalogue.jsp">Device Catalogue</a>
+                    <a class="nav-link" href="device-catalogue.jsp"></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#"></a>
                   </li>
                 </ul>
                 <!-- Left links -->
@@ -64,7 +64,7 @@
               <div class="d-flex align-items-center">
                 <!-- Shopping Cart -->
                 <a class="text-reset me-3" href="#">
-                  <i class="fa fa-shopping-cart"></i>
+                  
                 </a>
                 <!-- Profile -->
                 <% if (stafflogin != null){ %>

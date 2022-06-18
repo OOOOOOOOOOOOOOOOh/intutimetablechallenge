@@ -11,21 +11,21 @@
         <link rel="stylesheet" href="styles-revised.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <title>IoTBay - Register</title>
+        <title>Intuition - Register</title>
     </head>
     <body>
+        <% session.setAttribute("user", null);%>
         <div class="row" style="width:100%;">
             <div class="col-sm-4">
                 <div id="LHS" class="container-sm-fluid text-white">
-                    <img id="index-img" src="images/wave.png">
-                    <br><br><h1>Join IoTBay!</h1>
+                    <img width="80%" id="index-img" src="images/IntuLogo.svg">
+                    <h1>Join Intuition!</h1>
                 </div> 
             </div>
             <div class="col-sm-8">
                 <div id="RHS-reg" class="container-fluid">
         <div class="registration-form">
             <br>
-            <p class="margin-1">Already have a staff account? <a href="staff-login.jsp">Login</a></p>
             <div class="register-form">
                 <h1>Staff Registration</h1>
                 <form action="StaffRegisterServlet" method="post">
@@ -53,8 +53,15 @@
                   <p><%= (String) session.getAttribute("phoneErr") %></p>
                   <% } %>
                  <input type="submit" value="Sign Up">
-
-               </form>
+                </form>
+                <br>
+                <br>
+                <form action="register.jsp" method="post">
+                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Register as a user here!</button></p>
+                </form>
+                <form action="staff-login.jsp" method="post">    
+                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Login as a staff member here!</button></p>
+                   </form>
             </div>
             </div>
         </div>

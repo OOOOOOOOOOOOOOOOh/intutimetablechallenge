@@ -41,10 +41,10 @@
                    <%};%>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="device-catalogue.jsp">Device Catalogue</a>
+                    <a class="nav-link" href="device-catalogue.jsp"></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#"></a>
                   </li>
                 </ul>
                 <!-- Left links -->
@@ -53,7 +53,7 @@
               <div class="d-flex align-items-center">
                 <!-- Shopping Cart -->
                 <a class="text-reset me-3" href="#">
-                  <i class="fa fa-shopping-cart"></i>
+                  
                 </a>
                 <!-- Profile -->
                 <% if (stafflogin != null){ %>
@@ -85,7 +85,7 @@
                 <!-- Cards Section -->
                 <div id="list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">Access Logs</h5>
                                 <p class="card-text">View your previous access logs.</p>
                                 <a href="log.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -95,7 +95,7 @@
 
                 <div id="list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">My account</h5>
                                 <p class="card-text">View your account information.</p>
                                 <a href="account.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -104,7 +104,7 @@
                 </div>
                 <div id="list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">Add TimeTable</h5>
                                 <p class="card-text">View and self-allocate to available exam timetable slots.</p>
                                 <a href="viewExams.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -113,7 +113,7 @@
                 </div>
                 <div id="list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">View Allocated TimeTables</h5>
                                 <p class="card-text">View exam timetable slots you have been self-allocated to.</p>
                                 <a href="student-view-allocations.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -123,25 +123,44 @@
             </div>
         </div>
    <%} else { %>
-   <p style="color:white;text-align:center;">You are not logged in</p>
-        <div class="mt-3">
-            <a href="login.jsp"><button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
-                <span>Login</span>
-                <i class="fa fa-long-arrow-right ms-2"></i>
-            </button></a>
-        </div>
-        <div class="mt-3">
-            <a href="register.jsp"><button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
-                <span>Register</span>
-                <i class="fa fa-long-arrow-right ms-2"></i>
-           </button></a>
-        </div>
-        <div class="mt-3">
-            <a href="staff-login.jsp"<button id="purple-button" class="button btn btn-primary w-100 d-flex justify-content-center align-items-center">
-                <span>Staff login</span>
-                <i class="fa fa-long-arrow-right ms-2"></i>
-            </button></a>
-        </div>
+        <div class="row" style="width:100%;">
+                <div class="col-sm-4">
+                    <div id="LHS" class="container-md-fluid text-white">
+                        <img width="80%" id="index-img" src="images/IntuLogo.svg">
+                        <h1>Welcome to Intuition</h1>
+                    </div> 
+                </div>
+                <div class="col-sm-8">
+                    <div id="RHS" class="container-fluid">
+                        <h1>You are not logged in.</h1>
+                            <div class="mt-3">
+                                <a style="text-decoration: none;" href="login.jsp"><button id="purple-button" class="button btn btn-primary btn-lg w-100 d-flex justify-content-center align-items-center">
+                                    <span>Login</span>
+                                    <i class="fa fa-long-arrow-right ms-2"></i>
+                                </button></a>
+                            </div>
+                            <div class="mt-3">
+                                <a style="text-decoration: none;" href="register.jsp"><button id="purple-button" class="button btn btn-primary btn-lg w-100 d-flex justify-content-center align-items-center">
+                                    <span>Register</span>
+                                    <i class="fa fa-long-arrow-right ms-2"></i>
+                               </button></a>
+                            </div>
+                            <div class="mt-3">
+                                <a style="text-decoration: none;" href="staff-login.jsp"<button id="purple-button" class="button btn btn-primary btn-lg w-100 d-flex justify-content-center align-items-center">
+                                    <span>Staff login</span>
+                                    <i class="fa fa-long-arrow-right ms-2"></i>
+                                </button></a>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <p style="text-align: center; color: #7a7977">Intuition Code Challenge Submission by Samuel Lim</a></p>
+                    </div>
+                </div>
+          </div>
+
+    
+
    <% } %>
                 </div>
             </div>

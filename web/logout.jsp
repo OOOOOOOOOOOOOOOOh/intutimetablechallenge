@@ -18,12 +18,24 @@
 
             </ul>
         </div>
+        <br>
+        <br>
+        <br>
         <div class = "title">
-            <h3 style="color:white;text-align:center;">Timetable System</h3>
+            <h3 style="color:white;text-align:center;">Intuition Timetable System</h3>
         </div>
+        <br>
         <h1 style="color:white;text-align:center;">Logout</h1>
+        <br>
         <% session.invalidate();%>
         <p style="color:white;text-align:center;">You have been logged out.</p>
-        <p style="color:white;text-align:center;">Return to the main page <a href=" index.jsp">here</a></p>
+        <div class="d-flex justify-content-center">
+        <form action="index.jsp" method="post">
+        <button type="submit" class="btn btn-secondary">Return to the main page</button>
+        </div>
+        </form>
+            <div style="display: flex; justify-content: center;">
+            <img width="20%" id="index-img" src="images/IntuLogo.svg">
+            </div>
     </body>
 </html>
