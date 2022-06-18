@@ -50,13 +50,27 @@ public class DBManager {
     public int getExamQuantity(String dateTime, String roomID) throws SQLException{
         String fetch = "SELECT COUNT(DISTINCT EXAMID) FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' GROUP BY EXAMID";
         ResultSet rs = st.executeQuery(fetch);
-
+        
+        int examQuantity = 0;
         while(rs.next()){
-            int examQuantity = rs.getInt(1);
-            return examQuantity;
+            int examAdder = rs.getInt(1);
+            examQuantity+=examAdder;
         } 
-        return 0;
+        return examQuantity;
     }
+    
+    public ArrayList<String> getExamTypeList(String dateTime, String roomID) throws SQLException{
+        String fetch = "SELECT DISTINCT EXAMID FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' GROUP BY EXAMID";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        ArrayList<String> temp = new ArrayList();
+        while(rs.next()){
+            String exam = rs.getString(1);
+            temp.add(new String(exam));
+        } 
+        return temp;
+    }
+    
     public ArrayList<StudentExamRoomList> fetchStudentExamRoomList(String dateTime, String roomID) throws SQLException{
         String fetch = "SELECT STUDENTEMAIL, EXAMID FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' ORDER BY EXAMID";
         ResultSet rs = st.executeQuery(fetch);
@@ -71,7 +85,7 @@ public class DBManager {
     }
     
     public ArrayList<ExamSession> getExamSlots() throws SQLException{
-        String fetch = "SELECT * FROM ISDUSER.EXAMSESSION";
+        String fetch = "SELECT * FROM ISDUSER.EXAMSESSION ORDER BY DATETIME";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<ExamSession> temp = new ArrayList();
 
@@ -132,6 +146,18 @@ public class DBManager {
             
         }              
        return 0;   
+    }
+    
+    public ArrayList<String> getRoomIDs() throws SQLException{
+        String fetch = "SELECT * FROM ISDUSER.ROOM";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<String> temp = new ArrayList();
+
+        while(rs.next()){
+            String room = rs.getString(1);
+            temp.add(new String(room));
+        }
+        return temp;          
     }
 
        public int getRoomColumns(String roomID) throws SQLException{

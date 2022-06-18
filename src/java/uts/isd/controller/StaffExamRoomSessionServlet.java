@@ -52,6 +52,7 @@ public class StaffExamRoomSessionServlet extends HttpServlet {
             session.setAttribute("viewRoom", room);
             session.setAttribute("maxExamStudents", maxExamStudents);
             session.setAttribute("examQuantity", examQuantity);
+            session.setAttribute("dateTime", dateTime);
             System.out.println("Redirecting to examroom view");
             String redirectURL = "staff-view-exam-session.jsp";
             response.sendRedirect(redirectURL);
