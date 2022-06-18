@@ -69,8 +69,8 @@
         <servlet-class>uts.isd.controller.CartsViewServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateOrderServlet</servlet-name>
-        <servlet-class>uts.isd.controller.CreateOrderServlet</servlet-class>
+        <servlet-name>Createervlet</servlet-name>
+        <servlet-class>uts.isd.controller.Createervlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StudentAllocateServlet</servlet-name>
@@ -193,8 +193,8 @@
         <url-pattern>/CartViewServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CreateOrderServlet</servlet-name>
-        <url-pattern>/CreateOrderServlet</url-pattern>
+        <servlet-name>Createervlet</servlet-name>
+        <url-pattern>/Createervlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentAllocateServlet</servlet-name>

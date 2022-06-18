@@ -15,11 +15,12 @@
         <title>Intuition - Login</title>
     </head>
     <body> 
+        <% session.setAttribute("user", null);%>
         <div class="row" style="width:100%;">
                 <div class="col-sm-4">
                     <div id="LHS" class="container-md-fluid text-white">
-                        <img id="index-img" src="images/wave.png">
-                        <br><br><h1>Welcome to Intuition</h1>
+                        <img width="80%" id="index-img" src="images/IntuLogo.svg">
+                        <h1>Welcome to Intuition</h1>
                     </div> 
                 </div>
                 <div class="col-sm-8">
@@ -38,8 +39,15 @@
                             <% if (session.getAttribute("userNotFound") != null) { %>
                                 <p> Account not found! </p>
                             <%} %>
-                            <p id="registerLnk">Not a member of IoTBay? <a href="register.jsp">Register here</a></p>
-                            <p id="registerLnk">Looking for the staff portal? <a href="staff-login.jsp">Login here</a></p>
+                        </form>
+                        <br>
+                        <br>
+                <form action="register.jsp" method="post">
+                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Register as a user here!</button></p>
+                </form>
+                <form action="staff-login.jsp" method="post">    
+                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Login as a staff member here!</button></p>
+                   </form>
                         </form>
                     </div>
                 </div>

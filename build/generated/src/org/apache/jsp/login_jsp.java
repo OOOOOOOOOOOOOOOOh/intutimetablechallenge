@@ -55,6 +55,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Intuition - Login</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body> \r\n");
+      out.write("         ");
+ session.setAttribute("user", null); 
+      out.write("\r\n");
       out.write("        <div class=\"row\" style=\"width:100%;\">\r\n");
       out.write("                <div class=\"col-sm-4\">\r\n");
       out.write("                    <div id=\"LHS\" class=\"container-md-fluid text-white\">\r\n");

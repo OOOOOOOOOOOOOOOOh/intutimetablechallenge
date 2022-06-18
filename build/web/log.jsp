@@ -17,7 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <title>IotBay - My Account</title>
+        <title>Intuition - My Account</title>
     </head>
 
             <%
@@ -48,10 +48,10 @@
                    <%};%>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="device-catalogue.jsp">Device Catalogue</a>
+                    <a class="nav-link" href="device-catalogue.jsp"></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#"></a>
                   </li>
                 </ul>
                 <!-- Left links -->
@@ -60,7 +60,7 @@
               <div class="d-flex align-items-center">
                 <!-- Shopping Cart -->
                 <a class="text-reset me-3" href="#">
-                  <i class="fa fa-shopping-cart"></i>
+                  
                 </a>
                 <!-- Profile -->
                 <% if (stafflogin != null){ %>
@@ -76,20 +76,25 @@
             <!-- Container wrapper -->
           </nav>
          <!-- Navbar -->
-           
-        <h1 style="color:white;text-align:center;"><%=name%>'s Log</h1>
-            <div class ="user-registration">
+        <br>    
+        
+        <h1 style="color:white;text-align:center;"><%=name%>'s Access Log</h1>
+        <div style="margin-left: 10%; margin-right: 10%">
+        <div class="row row-cols-1 row-cols-md-4 g-3">
                 <%                  int count = 1;
                     for (uts.isd.model.Log log : logs) {
                 %>
-                <p style="color:white;text-align:center;">-----------------------------</p>
-                <p style="color:white;text-align:center;">Log Number <%=count%></p>
-                <p style="color:white;text-align:center;">Type: <%= log.getType()%></p>
-                <p style="color:white;text-align:center;">Date: <%= log.getDate()%></p>
-                <p style="color:white;text-align:center;">Email: <%= log.getEmail()%></p>
-                <p style="color:white;text-align:center;">-----------------------------</p>
+                <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title" style="color: black" style="color:white;text-align:center;">Log Number <%=count%></h5>
+                <p class="card-text" style="color: black">Type: <%= log.getType()%></p>
+                <p class="card-text" style="color: black">Date: <%= log.getDate()%></p>
+                <p class="card-text" style="color: black">Email: <%= log.getEmail()%></p>
+                </div>
+                </div>
                 <% count++;
                     } %>
+            </div>
             </div>
     </body>
 </html>

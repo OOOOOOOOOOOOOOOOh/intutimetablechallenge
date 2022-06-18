@@ -53,6 +53,9 @@ public final class staff_002dregister_jsp extends org.apache.jasper.runtime.Http
       out.write("        <title>IoTBay - Register</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
+      out.write("         ");
+ session.setAttribute("user", null); 
+      out.write("\r\n");
       out.write("        <div class=\"row\" style=\"width:100%;\">\r\n");
       out.write("            <div class=\"col-sm-4\">\r\n");
       out.write("                <div id=\"LHS\" class=\"container-sm-fluid text-white\">\r\n");

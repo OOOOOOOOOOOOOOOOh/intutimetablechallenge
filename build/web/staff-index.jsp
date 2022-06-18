@@ -39,7 +39,7 @@
               <div class="d-flex align-items-center">
                 <!-- Shopping Cart -->
                 <a class="text-reset me-3" href="#">
-                  <i class="fa fa-shopping-cart"></i>
+                  
                 </a>
                 <!-- Profile -->
                 <% if (stafflogin != null){ %>
@@ -65,12 +65,11 @@
             String name = user.getName(); 
     %>
      
-            <p>You are logged in as <%= name %> </p>
         <!-- Header -->
         <header class="py-5">
             <div class="container-fluid px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1>Home Page</h1>
+                    <h1><%= name %>'s Home Page</h1>
                 </div>
             </div>
         </header>
@@ -81,7 +80,7 @@
                 <!-- Cards Section -->
                 <div id="product-list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">Access Logs</h5>
                                 <p class="card-text">View your previous access logs.</p>
                                 <a href="staff-log.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -91,7 +90,7 @@
 
                 <div id="product-list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">My account</h5>
                                 <p class="card-text">View your account information.</p>
                                 <a href="staff-account.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -100,7 +99,7 @@
                 </div>
                 <div id="product-list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3";>
                                 <h5 class="card-title">View Exam Sessions</h5>
                                 <p class="card-text">View room layouts and existing exam sessions.</p>
                                 <a href="staff-view-examslots.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
@@ -109,9 +108,9 @@
                 </div>
                 <div id="product-list" class="col">
                     <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: #e3e3e3">
                                 <h5 class="card-title">Add A New Exam Session</h5>
-                                <p class="card-text">Add a new exam session.</p>
+                                <p class="card-text">Create a new exam session for students to enroll into.</p>
                                 <a href="staff-add-time-slot.jsp" style="background-color: #5666e3;" class="btn btn-primary">View</a>
                             </div>
                     </div>

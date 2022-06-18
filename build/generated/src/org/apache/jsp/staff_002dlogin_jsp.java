@@ -53,11 +53,14 @@ public final class staff_002dlogin_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        <title>Staff Login</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
+      out.write("        ");
+ session.setAttribute("user", null);
+      out.write("\r\n");
       out.write("        <div class=\"row\" style=\"width:100%;\">\r\n");
       out.write("                <div class=\"col-sm-4\">\r\n");
       out.write("                    <div id=\"LHS\" class=\"container-md-fluid text-white\">\r\n");
-      out.write("                        <img id=\"index-img\" src=\"images/wave.png\">\r\n");
-      out.write("                        <br><br><h1>Staff Login</h1>\r\n");
+      out.write("                        <img width=\"80%\" id=\"index-img\" src=\"images/IntuLogo.svg\">\r\n");
+      out.write("                        <h1>Staff Login</h1>\r\n");
       out.write("                    </div> \r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"col-sm-8\">\r\n");
