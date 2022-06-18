@@ -21,8 +21,15 @@ jobs:
         with:
           java-version: '8'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - task: Ant@1
+        inputs:
+          workingDirectory: ''
+          buildFile: 'build.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
