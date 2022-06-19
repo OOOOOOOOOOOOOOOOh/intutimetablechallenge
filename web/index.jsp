@@ -154,7 +154,7 @@
                             <br>
                             <br>
                             <br>
-                            <p style="text-align: center; color: #7a7977">Intuition Code Challenge Submission by Samuel Lim 2022</p>
+                            <p style="text-align: center; color: #7a7977">Intuition Code Challenge Submission by Samuel Lim</a></p>
                     </div>
                 </div>
           </div>
