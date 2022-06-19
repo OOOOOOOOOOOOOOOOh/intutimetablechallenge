@@ -218,7 +218,7 @@ public class DBManager {
     
     //Find user by email and password in the database   
     public User findUser(String email, String password) throws SQLException {  
-       String fetch = "SELECT * FROM ISDUSER.Users WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password +"'";  
+       String fetch = "SELECT * FROM ISDUSER.USERS WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password +"'";  
        ResultSet rs = st.executeQuery(fetch);
 
        while (rs.next()){
@@ -232,7 +232,7 @@ public class DBManager {
     }
         
     public String findEmail(String email) throws SQLException {  
-       String fetch = "SELECT * FROM ISDUSER.Users WHERE email = '" + email + "'";  
+       String fetch = "SELECT * FROM ISDUSER.USERS WHERE email = '" + email + "'";  
        ResultSet rs = st.executeQuery(fetch);
 
        while (rs.next()){
@@ -243,7 +243,7 @@ public class DBManager {
     }
 
     public String findName(String email) throws SQLException {  
-       String fetch = "SELECT * FROM ISDUSER.Users WHERE email = '" + email + "'";  
+       String fetch = "SELECT * FROM ISDUSER.USERS WHERE email = '" + email + "'";  
        ResultSet rs = st.executeQuery(fetch);
 
        while (rs.next()){
@@ -265,12 +265,12 @@ public class DBManager {
 
     //delete a user from the database   
     public void deleteUser(String email) throws SQLException{       
-       st.executeUpdate("DELETE FROM ISDUSER.Users WHERE EMAIL='" + email + "'");
+       st.executeUpdate("DELETE FROM ISDUSER.USERS WHERE EMAIL='" + email + "'");
     }
 
     //Read all USERS and store the results into rs. Then iterate through each set and read every attribute by index
     //Create and add each user from the table to the ArrayList
-    public ArrayList<User> fetchUsers() throws SQLException{
+    public ArrayList<User> fetchUSERS() throws SQLException{
         String fetch = "SELECT * FROM ISDUSER.USERS";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<User> temp = new ArrayList();
@@ -286,7 +286,7 @@ public class DBManager {
 
     //Read every row from USERS and verify by email and pword if a user exists or not
     public boolean checkUser(String email, String password) throws SQLException {
-        String fetch = "SELECT * FROM ISDUSER.Users WHERE email='" + email + "' and password='" + password +"'";
+        String fetch = "SELECT * FROM ISDUSER.USERS WHERE EMAIL='" + email + "' AND PASSWORD='" + password +"'";
         ResultSet rs = st.executeQuery(fetch);
 
         while(rs.next()){
@@ -300,7 +300,7 @@ public class DBManager {
     }
     //LOGS
     public ArrayList<Log> fetchLog(String email) throws SQLException{
-        String fetch = "SELECT * FROM ISDUSER.LOG WHERE email='" + email + "'";
+        String fetch = "SELECT * FROM ISDUSER.LOG WHERE EMAIL='" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Log> temp = new ArrayList();
 
@@ -319,7 +319,7 @@ public class DBManager {
     
     //STAFF LOGS
     public ArrayList<StaffLog> fetchStaffLog(String email) throws SQLException{
-        String fetch = "SELECT * FROM ISDUSER.STAFFLOG WHERE email='" + email + "'";
+        String fetch = "SELECT * FROM ISDUSER.STAFFLOG WHERE EMAIL='" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<StaffLog> temp = new ArrayList();
 
@@ -338,7 +338,7 @@ public class DBManager {
     
     //STAFF
     public Staff findStaff(String email, String password) throws SQLException {  
-       String fetch = "SELECT * FROM ISDUSER.Staff WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password +"'";  
+       String fetch = "SELECT * FROM ISDUSER.STAFF WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password +"'";  
        ResultSet rs = st.executeQuery(fetch);
 
        while (rs.next()){
@@ -352,7 +352,7 @@ public class DBManager {
     }
     
     public String findStaffEmail(String email) throws SQLException {  
-       String fetch = "SELECT * FROM ISDUSER.Staff WHERE email = '" + email + "'";  
+       String fetch = "SELECT * FROM ISDUSER.STAFF WHERE EMAIL = '" + email + "'";  
        ResultSet rs = st.executeQuery(fetch);
 
        while (rs.next()){
@@ -369,12 +369,12 @@ public class DBManager {
 
     //update a user details in the database   
     public void updateStaff( String email, String name, String password, String emailold) throws SQLException {       
-      st.executeUpdate("UPDATE ISDUSER.Staff SET EMAIL='" +  email + "', NAME='" + name + "', PASSWORD='" + password  +  "' WHERE EMAIL='" + emailold + "'");
+      st.executeUpdate("UPDATE ISDUSER.STAFF SET EMAIL='" +  email + "', NAME='" + name + "', PASSWORD='" + password  +  "' WHERE EMAIL='" + emailold + "'");
     }       
 
     //delete a user from the database   
     public void deleteStaff(String email) throws SQLException{       
-       st.executeUpdate("DELETE FROM ISDUSER.Staff WHERE EMAIL='" + email + "'");
+       st.executeUpdate("DELETE FROM ISDUSER.STAFF WHERE EMAIL='" + email + "'");
     }
 
     //Read all USERS and store the results into rs. Then iterate through each set and read every attribute by index
@@ -398,7 +398,7 @@ public class DBManager {
 
     //Read every row from USERS and verify by email and pword if a user exists or not
     public boolean checkStaff(String email, String password) throws SQLException {
-        String fetch = "SELECT * FROM ISDUSER.Staff WHERE email='" + email + "' and password='" + password +"'";
+        String fetch = "SELECT * FROM ISDUSER.STAFF WHERE EMAIL='" + email + "' and password='" + password +"'";
         ResultSet rs = st.executeQuery(fetch);
 
         while(rs.next()){

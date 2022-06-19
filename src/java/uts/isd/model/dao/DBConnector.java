@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 public class DBConnector extends DB{
     public DBConnector() throws ClassNotFoundException, SQLException {
-        Class.forName(driver);
-        conn = DriverManager.getConnection(URL+db, dbuser, dbpass);
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://aa1boye1ic9liso.clfkr0w3yl3q.ap-southeast-2.rds.amazonaws.com:3306/?user=isduser&password=admin123&useSSL=false");
     }
 
     public Connection openConnection(){
