@@ -55,14 +55,14 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Intuition - Login</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body> \r\n");
-      out.write("         ");
- session.setAttribute("user", null); 
+      out.write("        ");
+ session.setAttribute("user", null);
       out.write("\r\n");
       out.write("        <div class=\"row\" style=\"width:100%;\">\r\n");
       out.write("                <div class=\"col-sm-4\">\r\n");
       out.write("                    <div id=\"LHS\" class=\"container-md-fluid text-white\">\r\n");
-      out.write("                        <img id=\"index-img\" src=\"images/wave.png\">\r\n");
-      out.write("                        <br><br><h1>Welcome to Intuition</h1>\r\n");
+      out.write("                        <img width=\"80%\" id=\"index-img\" src=\"images/IntuLogo.svg\">\r\n");
+      out.write("                        <h1>Welcome to Intuition</h1>\r\n");
       out.write("                    </div> \r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"col-sm-8\">\r\n");
@@ -85,8 +85,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            ");
 } 
       out.write("\r\n");
-      out.write("                            <p id=\"registerLnk\">Not a member of IoTBay? <a href=\"register.jsp\">Register here</a></p>\r\n");
-      out.write("                            <p id=\"registerLnk\">Looking for the staff portal? <a href=\"staff-login.jsp\">Login here</a></p>\r\n");
+      out.write("                        </form>\r\n");
+      out.write("                        <br>\r\n");
+      out.write("                        <br>\r\n");
+      out.write("                <form action=\"register.jsp\" method=\"post\">\r\n");
+      out.write("                    <p style=\"text-align: center\"><button type=\"submit\" class=\"btn btn-secondary\">Register as a user here!</button></p>\r\n");
+      out.write("                </form>\r\n");
+      out.write("                <form action=\"staff-login.jsp\" method=\"post\">    \r\n");
+      out.write("                    <p style=\"text-align: center\"><button type=\"submit\" class=\"btn btn-secondary\">Login as a staff member here!</button></p>\r\n");
+      out.write("                   </form>\r\n");
       out.write("                        </form>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
