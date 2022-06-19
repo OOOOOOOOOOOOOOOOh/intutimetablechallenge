@@ -28,25 +28,23 @@
                         <form action="UserLoginServlet" method="post">
                             <h1>Login</h1>
                             <div class="login-form">
-                                <p>Email Address</p>
-                                <input class="input-group" type="text" id="email" name="email" required><br>
-                                <p>Password</p>
-                                <input class="input-group" type="password" id="password" name="password" required><br><br>
+                                <input class="form-control" placeholder="Email Address" type="text" id="email" name="email" required><br>
+                                <input class="form-control" placeholder="Password" type="password" id="password" name="password" required><br><br>
                                 <input type="hidden" id="login" name="login" value="true"><br><br>
                             </div>
-                            <br>
                             <button id="submit" type="submit" value="login">Login</button>
                             <% if (session.getAttribute("userNotFound") != null) { %>
-                                <p> Account not found! </p>
+                            <div class="alert alert-warning">
+                                <strong>Account not found!</strong> - Check your email or password.
+                            </div>    
                             <%} %>
+                        <hr style="width: 100%; text-align: center; height: 3px; background-color: #F6A125; height: 3px;">
                         </form>
-                        <br>
-                        <br>
                 <form action="register.jsp" method="post">
-                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Register as a user here!</button></p>
+                    <p class="btn btn-secondary w-100"><button type="submit" class="btn btn-secondary w-100">Register as a user here!</button></p>
                 </form>
                 <form action="staff-login.jsp" method="post">    
-                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Login as a staff member here!</button></p>
+                    <p class="btn btn-secondary w-100"><button type="submit" class="btn btn-secondary w-100">Login as a staff member here!</button></p>
                    </form>
                         </form>
                     </div>

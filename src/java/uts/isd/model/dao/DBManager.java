@@ -37,7 +37,7 @@ public class DBManager {
         return temp;
     }
     public int getMaxExamStudents(String dateTime, String roomID) throws SQLException{
-        String fetch = "SELECT EXAMID, COUNT(EXAMID) FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' GROUP BY EXAMID ORDER BY COUNT(EXAMID) DESC FETCH FIRST 1 ROWS ONLY";
+        String fetch = "SELECT EXAMID, COUNT(EXAMID) FROM ISDUSER.ALLOCATEDSTUDENTS WHERE DATETIME= '" + dateTime + "' and ROOMNUMBER='" + roomID +"' GROUP BY EXAMID ORDER BY COUNT(EXAMID) DESC LIMIT 1";
         ResultSet rs = st.executeQuery(fetch);
 
         while(rs.next()){

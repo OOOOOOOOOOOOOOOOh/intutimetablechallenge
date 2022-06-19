@@ -27,37 +27,34 @@
                     <form action="UserRegisterServlet" method="post">
                         <h1>Register</h1>
                         <div class="register-form">
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email" required>
-                            <p></p>
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required>
-                            <p></p>
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required>
-                            <p></p>
+                            <input class="form-control" placeholder="Email" type="text" id="email" name="email" required>
+                            <br>
+                            <input class="form-control" placeholder="Name" type="text" id="name" name="name" required>
+                            <br>
+                            <input class="form-control" placeholder="Password" type="password" id="password" name="password" required>
+                            <br>
                             <label for="tos">I agree to the Terms of Service:</label>
                             <input type="checkbox" id="tos" name="tos">
-                            <p></p>
+                            <br>
                             <input type="hidden" id="login" name="login" value="true">
                            <%if ((String) session.getAttribute("fail") == "true") { %>
-                               <p>Email already taken, please choose a different email or <a href="login.jsp">Login</a></p>
+                            <div class="alert alert-warning">
+                                <strong>Email already used!</strong> - Please choose a different email or login.
+                            </div>  
                              <% }%>
                   <% if ((String) session.getAttribute("emailErr") != null) { %>
                   <p><%= (String) session.getAttribute("emailErr") %></p>
                   <% } %>
                             <input id="submit" type="submit" value="Sign Up">
+                            <hr style="width: 100%; text-align: center; height: 3px; background-color: #F6A125; height: 3px;">
 
- 
                         </div>
                     </form>
-                            <br>
-                            <br>
                     <form action="login.jsp" method="post">
-                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Login as a user here!</button></p>
+                    <p type="submit" class="btn btn-secondary w-100"><button type="submit" class="btn btn-secondary">Login as a user here!</button></p>
                 </form>
                 <form action="staff-login.jsp" method="post">    
-                    <p style="text-align: center"><button type="submit" class="btn btn-secondary">Login as a staff member here!</button></p>
+                    <p type="submit" class="btn btn-secondary w-100"><button type="submit" class="btn btn-secondary">Login as a staff member here!</button></p>
                    </form>
                     
                 </div>
