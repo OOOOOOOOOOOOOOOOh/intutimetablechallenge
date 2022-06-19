@@ -7,10 +7,12 @@
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/nbproject/build-impl.xml~</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/nbproject/build-impl.xml</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/src/java/uts/isd/controller/ConnServlet.java</file>
+            <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/src/java/uts/isd/model/dao/DBManager.java</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/src/java/uts/isd/model/dao/DBConnector.java</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/src/java/uts/isd/controller/StaffAddTimeSlotServlet.java</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/web/WEB-INF/web.xml</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/nbproject/private/private.properties</file>
+            <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/web/WEB-INF/glassfish-web.xml</file>
             <file>file:/D:/ISD/Java%20ISD%20WebApp/intutimetablechallenge/web/index.jsp</file>
         </group>
     </open-files>
