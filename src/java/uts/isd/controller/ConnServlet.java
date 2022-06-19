@@ -18,7 +18,7 @@ import uts.isd.model.dao.*;
 
 /**
  *
- * @author Caitlin O'Malley
+ * @author Sam Sam
  */
 public class ConnServlet extends HttpServlet {
     private DBConnector db;

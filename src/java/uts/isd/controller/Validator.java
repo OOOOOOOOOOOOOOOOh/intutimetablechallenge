@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.dao.DBManager;
 
 /*
- * @author Caitlin O'Malley
+ * @author Sam Sam
  */
 
 public class Validator implements Serializable {  

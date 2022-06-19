@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author Sam (1/2) + caitlin :)
+ * @author Sam (1/2) + Sam :)
  */
 
 @WebServlet(name = "UserRegisterServlet", urlPatterns = {"/UserRegisterServlet"})

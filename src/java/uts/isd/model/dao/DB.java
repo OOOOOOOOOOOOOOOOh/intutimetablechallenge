@@ -3,7 +3,7 @@ package uts.isd.model.dao;
 import java.sql.Connection;
 
 /**
- *  @author Caitlin O'Malley
+ *  @author Sam Sam
  *  Contains database set up 
  */
 public abstract class DB {

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *  @author Caitlin O'Malley
+ *  @author Sam Sam
  *  Inherits protected fields of the DB class
  */
 

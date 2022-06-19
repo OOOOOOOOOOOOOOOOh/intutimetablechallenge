@@ -22,7 +22,7 @@ import java.util.logging.*;
 
 /**
  *
- * @author Sam (1/2) + caitlin :)
+ * @author Sam (1/2) + Sam :)
  */
 
 @WebServlet(name = "StaffLoginServlet", urlPatterns = {"/StaffLoginServlet"})
